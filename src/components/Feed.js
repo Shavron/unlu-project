@@ -94,12 +94,12 @@ export default function Feed() {
           let tempData = localStorage.getItem("feeds")
             ? JSON.parse(localStorage.getItem("feeds"))
             : [];
-          if (tempData) {
+          if (tempData.length > 0) {
             setFeed(tempData);
           } else {
             setError({
               error: true,
-              msg: "Oops :) No data Available This Moment"
+              msg: e
             });
           }
         });
