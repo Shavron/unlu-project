@@ -6,7 +6,6 @@ import { BrowserRouter, Route } from "react-router-dom";
 function App() {
   return (
     <>
-      hi
       <BrowserRouter>
         {/* <Route
           exact
