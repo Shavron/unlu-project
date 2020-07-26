@@ -1,38 +1,56 @@
-.App {
+body {
+  background-color: #e6ebeb;
+  background-image: url("https://www.transparenttextures.com/patterns/bright-squares.png");
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+#root,
+.navbar {
+  min-width: 340px !important;
+}
+.navbar .card-body {
+  padding: 0.5rem;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.card-link {
+  /* font-size: 20px; */
+  cursor: pointer;
+}
+.navbar .card-link:hover,
+.navbar .sort:hover {
+  color: #3ac2c2 !important;
+}
+.sort {
+  font-size: "20px";
+  color: "#000";
+  cursor: pointer;
+  color: #3ac2c2 !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media (min-width: 768px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl {
+    max-width: 576px !important;
+  }
+  .modal-lg,
+  .modal-xl {
+    max-width: 30% !important;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 420px) {
+  .navbar i {
+    font-size: 12px !important;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media (max-width: 360px) {
+  .navbar i {
+    font-size: 10px !important;
   }
 }

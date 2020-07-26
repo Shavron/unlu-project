@@ -1,0 +1,10 @@
+.modal-content .card {
+  box-shadow: none;
+  margin-bottom: 0;
+}
+.modal-title {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 374px;
+  overflow: hidden;
+}

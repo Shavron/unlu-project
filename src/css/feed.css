@@ -1,0 +1,41 @@
+.card {
+  margin-bottom: 25px;
+  box-shadow: 6px 5px 20px #888888;
+}
+
+.card .card-title {
+  margin-bottom: 0;
+  font-family: "font-family: 'Rowdies', cursive";
+  font-size: 24px;
+}
+.card .card-link {
+  margin-left: 3%;
+  margin-right: 3%;
+}
+.card a {
+  font-size: 20px;
+  cursor: pointer;
+}
+.card a :hover {
+  color: rgb(2, 19, 18);
+  transform: scale(1.2);
+}
+.card .img-thumbnail {
+  padding: 0;
+  border: 0;
+}
+.card-title {
+  text-transform: capitalize;
+}
+p {
+  font-size: 9px;
+  margin-bottom: 0 !important;
+}
+.modal-header {
+  padding: 0.25rem 1.25rem 0.5rem 1rem !important;
+}
+.card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 0.5rem !important;
+}
