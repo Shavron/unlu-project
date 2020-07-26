@@ -4,7 +4,7 @@
   "private": true,
   "description": "Unlu Project - Scrollable Feed",
   "engines": {
-    "node": "  13.2.0",
+    "node": "13.2.0",
     "npm": "6.13.4"
   },
   "dependencies": {
@@ -25,7 +25,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "react-scripts build --prod"
   },
   "eslintConfig": {
     "extends": "react-app"
