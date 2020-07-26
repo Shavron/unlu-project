@@ -1,6 +1,5 @@
 {
   "name": "unlu-project",
-  "version": "0.1.0",
   "private": true,
   "description": "Unlu Project - Scrollable Feed",
   "engines": {
