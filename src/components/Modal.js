@@ -4,7 +4,6 @@ import moment from "moment";
 import "../css/Modal.css";
 
 export default React.memo(function Model(props) {
-  console.log(props);
   return (
     <Modal
       {...props}
