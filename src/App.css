@@ -15,7 +15,6 @@ body {
   text-align: center;
 }
 .card-link {
-  /* font-size: 20px; */
   cursor: pointer;
 }
 .navbar .card-link:hover,

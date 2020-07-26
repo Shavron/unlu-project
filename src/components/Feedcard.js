@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-import "../css/feed.css";
+import moment from "moment";
 import { Card, Image } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "font-awesome/css/font-awesome.min.css";
-import moment from "moment";
-import FeedCard from "../components/Feedcard";
+import "../css/feed.css";
+
 export default function Feedcard(props) {
-  console.log(props.feed.views);
   return (
     <>
       <Card className="" onClick={() => props.getModalData(props.feed)}>

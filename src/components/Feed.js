@@ -1,59 +1,50 @@
 import React, { useState, useEffect } from "react";
-import FeedCard from "../components/Feedcard";
+import { Container } from "react-bootstrap";
+import FeedCard from "./Feedcard";
 import Modal from "./Modal";
 import Error from "./Error";
-import { Container } from "react-bootstrap";
 import Navbar from "./Navbar";
 
-export default function Feed(props) {
-  const [feeds, setFeed] = useState({});
-  const [clickedCardData, setClickedCardData] = useState({});
-  const [modalStatus, setModalStatus] = useState(false);
-  const [error, setError] = useState({ error: false, msg: "" });
-  const [sortData, setSortData] = useState({});
+export default function Feed() {
+  const [page, setPage] = useState(0);
   const [asc, setAsc] = useState(true);
-
-  useEffect(() => {
-    setSortData(feeds);
-  }, [feeds]);
+  const [feeds, setFeed] = useState([]);
+  const [sortData, setSortData] = useState({});
+  const [modalStatus, setModalStatus] = useState(false);
+  const [clickedCardData, setClickedCardData] = useState({});
+  const [error, setError] = useState({ error: false, msg: "" });
 
   const ApiArray = [
     "http://www.mocky.io/v2/59b3f0b0100000e30b236b7e",
     "http://www.mocky.io/v2/59ac28a9100000ce0bf9c236",
     "http://www.mocky.io/v2/59ac293b100000d60bf9c239"
   ];
-  const [page, setPage] = useState(0);
+
+  useEffect(() => {
+    if (Object.keys(feeds).length) {
+      localStorage.setItem("feeds", JSON.stringify(feeds));
+      setSortData(feeds);
+    }
+  }, [feeds]);
+
   const clickOncard = feed => {
     setClickedCardData(feed);
     setModalStatus(true);
   };
 
-  const clickOnClose = status => {
-    setModalStatus(false);
-  };
-
-  if (!navigator.onLine) {
-    // alert();
-    // let tempfeed = localStorage.getItem("feeds")
-    // if (tempfeed) { this.setState({ feeds: JSON.parse(tempfeed) }) }
-    // this.setState({ toastText: "No Internet Connection!" }, () => {
-    //     this.toggleToast();
-    // })
-  }
+  // const clickOnClose = status => {
+  //   setModalStatus(false);
+  // };
 
   useEffect(() => {
-    window.addEventListener("scroll", () => {
-      let scrollPos = window.scrollY;
-      let pageHeight = document.body.scrollHeight;
-      if (
-        parseInt(window.pageYOffset / 2000) &&
-        ApiArray.length > parseInt(window.pageYOffset / 2000) &&
-        page != parseInt(window.pageYOffset / 2000)
-      ) {
-        console.log(parseInt(window.pageYOffset / 2000));
-        setPage(parseInt(window.pageYOffset / 2000));
-      }
-    });
+    if (navigator.onLine) {
+      window.addEventListener("scroll", () => {
+        let h = parseInt(window.pageYOffset / 2100);
+        if (h && ApiArray.length > h && page != h) {
+          setPage(h);
+        }
+      });
+    }
   });
 
   useEffect(() => {
@@ -80,14 +71,11 @@ export default function Feed(props) {
           return res.json();
         })
         .then(data => {
-          console.log(data);
-          let tempData = localStorage.getItem("feeds")
-            ? JSON.parse(localStorage.getItem("feeds"))
-            : [];
-          let newArray = [...tempData, ...data.posts];
-
-          console.log(newArray);
-          setFeed(newArray);
+          // console.log(data);
+          // let tempData = localStorage.getItem("feeds")
+          //   ? JSON.parse(localStorage.getItem("feeds"))
+          //   : [];
+          let newArray = [...feeds, ...data.posts];
 
           const uniqueArray = newArray.filter((thing, index) => {
             const _thing = JSON.stringify(thing);
@@ -99,6 +87,7 @@ export default function Feed(props) {
             );
           });
 
+          setFeed(uniqueArray);
           localStorage.setItem("feeds", JSON.stringify(uniqueArray));
         })
         .catch(e => {
@@ -118,7 +107,6 @@ export default function Feed(props) {
   }, [page]);
 
   const handleSort = type => {
-    // console.log(feeds.map(m => m[type]));
     feeds.sort(function(a, b) {
       return asc == false
         ? b[type] > a[type]
@@ -137,9 +125,9 @@ export default function Feed(props) {
     setSortData(Object.assign([], feeds));
   };
 
-  const handleStatus = () => {
-    setAsc(!asc);
-  };
+  // const handleStatus = () => {
+  //   setAsc(!asc);
+  // };
 
   return (
     <>
@@ -147,7 +135,7 @@ export default function Feed(props) {
         <Navbar
           sortBy={handleSort}
           sorttype={asc}
-          changeStatus={handleStatus}
+          changeStatus={() => setAsc(!asc)}
         />
       )}
       <Container style={{ marginTop: "65px" }}>
@@ -158,7 +146,11 @@ export default function Feed(props) {
               );
             })
           : ""}
-        <Modal show={modalStatus} feed={clickedCardData} close={clickOnClose} />
+        <Modal
+          show={modalStatus}
+          feed={clickedCardData}
+          closemodal={() => setModalStatus(false)}
+        />
         {error.error ? <Error error={error} /> : ""}
       </Container>
     </>

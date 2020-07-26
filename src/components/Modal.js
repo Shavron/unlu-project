@@ -1,7 +1,7 @@
 import React from "react";
-import "../css/Modal.css";
 import { Card, Image, Modal } from "react-bootstrap";
 import moment from "moment";
+import "../css/Modal.css";
 
 export default React.memo(function Model(props) {
   console.log(props);
@@ -13,7 +13,7 @@ export default React.memo(function Model(props) {
       centered
     >
       <Card>
-        <Modal.Header closeButton onClick={() => props.close(false)}>
+        <Modal.Header closeButton onClick={() => props.closemodal(false)}>
           <Modal.Title id="contained-modal-title-vcenter">
             {props.feed.event_name}
             <br />
