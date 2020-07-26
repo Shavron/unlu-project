@@ -142,7 +142,17 @@ export default function Feed() {
         {sortData.length > 0
           ? sortData.map((feed, index) => {
               return (
-                <FeedCard feed={feed} key={index} getModalData={clickOncard} />
+                <FeedCard
+                  feed={feed}
+                  key={
+                    feed.event_name +
+                    index +
+                    feed.views +
+                    feed.likes +
+                    Math.floor(Math.random() * 100 + 1)
+                  }
+                  getModalData={clickOncard}
+                />
               );
             })
           : ""}
