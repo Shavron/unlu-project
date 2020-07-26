@@ -3,18 +3,18 @@ import { Card } from "react-bootstrap";
 
 export default function Navbar(props) {
   return (
-    <nav class="navbar fixed-top navbar-light bg-light">
+    <nav className="navbar fixed-top navbar-light bg-light">
       <Card.Body className="text-muted">
         Sort&nbsp;
         {props.sorttype ? (
           <i
-            class="fa sort fa-sort-amount-asc"
+            className="fa sort fa-sort-amount-asc"
             aria-hidden="true"
             onClick={props.changeStatus}
           ></i>
         ) : (
           <i
-            class="fa sort fa-sort-amount-desc"
+            className="fa sort fa-sort-amount-desc"
             aria-hidden="true"
             onClick={props.changeStatus}
           ></i>
