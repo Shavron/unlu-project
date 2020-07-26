@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/unlu-project/precache-manifest.f5d69ceff29eac884f90003b05af8f6d.js"
+  "/unlu-project/precache-manifest.4bd799dae9e7579da088e004ebbe0d13.js"
 );
 
 self.addEventListener('message', (event) => {

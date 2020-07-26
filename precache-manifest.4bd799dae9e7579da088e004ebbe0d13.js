@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "32b97ccc8283711766a1036c922155ab",
+    "revision": "898d061096c1d77b22e9c3b7e324f097",
     "url": "/unlu-project/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/unlu-project/static/css/2.cf4bd975.chunk.css"
   },
   {
-    "revision": "b2220d1fd9d12f1ae114",
+    "revision": "f9adf437e628874b2633",
     "url": "/unlu-project/static/css/main.d1e05458.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/unlu-project/static/js/2.e2e05bb6.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "b2220d1fd9d12f1ae114",
-    "url": "/unlu-project/static/js/main.0435a920.chunk.js"
+    "revision": "f9adf437e628874b2633",
+    "url": "/unlu-project/static/js/main.30347d45.chunk.js"
   },
   {
     "revision": "79074595699b8fb1c837",
